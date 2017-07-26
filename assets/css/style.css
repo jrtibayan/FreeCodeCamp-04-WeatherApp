@@ -1,0 +1,176 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2em;
+    height: 70px;
+    margin: 0;
+    padding: 20px 0 10px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 20px 0 0px;
+}
+
+img {
+    width: auto;
+    height: 100%;
+}
+
+body {
+    background: #fff;
+    color: #2f2f2f;
+    font-size: 16px;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    width: 100vw;
+}
+
+main {
+    background: #1BA3DD;
+    border-radius: 4px;
+    height: calc(100vh - 60px);
+    margin: 20px 20px 0;
+    overflow: auto;
+    width: calc(100vw - 40px);
+}
+
+.icon {
+    height: 40vh;
+    margin: 0 auto;
+}
+
+.info p{
+    font-size: 1em;
+    line-height: 30px;
+    margin: 0;
+}
+
+
+.btn {
+    background: lightgrey;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: grey;
+    display: inline-block;
+}
+
+.btn .btnTemp {
+    display: inherit;
+    min-width: 40px;
+}
+
+#btnCel {
+    border-radius: 5px 0 0 5px;
+}
+
+#btnFar {
+    border-radius: 0 5px 5px 0;
+}
+
+#btnCel:hover,
+#btnFar:hover {
+    background: blue;
+    color: #fff;
+}
+
+#btnCel.active, #btnFar.active {
+    background: green;
+    color: #fff;
+}
+
+
+footer {
+    background: #fff;
+    font-size: .9em;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer button, .close-btn {
+    background: #fff;
+    border: 1px solid #2f2f2f;
+    border-radius: 4px;
+    color: #2f2f2f;
+    font-size: 1em;
+    height: 25px;
+    line-height: 20px;
+    margin: 0;
+    text-align: center;
+    width: auto;
+}
+
+.more-info {
+    background: #dddddd;
+    height: 100vh;
+    overflow: auto;
+    padding: 20px;
+    text-align: left;
+    width: 100vw;
+    z-index: 999;
+
+    position: absolute;
+    top: 100vh;
+    left: 0;
+}
+
+.more-info .container{
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.close-btn {
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+form input, form .btn, form textarea{
+    width: 100%;
+}
+
+.Aligner {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 180px);
+    justify-content: center;
+}
+
+.Aligner-item {
+    flex: 1;
+    text-align: center;
+}
+
+.Aligner-item--top {
+    align-self: flex-start;
+    max-width: 0;
+}
+
+.Aligner-item--bottom {
+    align-self: flex-end;
+    max-width: 0;
+}
+
+.Aligner-item--fixed {
+    flex: none;
+    max-width: 50%;
+}
+
+@media screen and (max-height: 419px) {
+    .icon {
+        height: 30vh;
+    }
+}
+
+@media screen and (max-height: 355px) {
+    .icon {
+        height: 20vh;
+    }
+}
