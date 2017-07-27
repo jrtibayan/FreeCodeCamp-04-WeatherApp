@@ -133,12 +133,14 @@ getLocation(
 // show the info section
 $('.more-info-btn').click(function() {
     $(".more-info").animate({top: 0}, 500);
+    $('.more-info').css('display', 'block');
 });
 
 // close the info section
 $('.close-btn').click(function() {
     console.log('hello');
     $(".more-info").animate({opacity: 0}, 500, function() {
+        $('.more-info').css('display', 'none');
         $('.more-info').css('opacity', '1');
         $('.more-info').css('top', '100vh');
     });
