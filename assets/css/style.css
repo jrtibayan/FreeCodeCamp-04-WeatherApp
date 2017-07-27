@@ -95,7 +95,7 @@ footer p {
     margin: 0;
 }
 
-footer button, .close-btn {
+footer button, .close-btn, .submit-btn {
     background: #fff;
     border: 1px solid #2f2f2f;
     border-radius: 4px;
@@ -110,6 +110,7 @@ footer button, .close-btn {
 
 .more-info {
     background: #dddddd;
+    display: none;
     height: 100vh;
     overflow: auto;
     padding: 20px;
@@ -122,15 +123,19 @@ footer button, .close-btn {
     left: 0;
 }
 
-.more-info .container{
+.more-info .container {
     margin: 0 auto;
     max-width: 400px;
 }
 
-.close-btn {
-    margin: 20px 0 0 0;
+.close-btn, .submit-btn {
     width: 100%;
 }
+
+.close-btn {
+    margin: 40px 0 0 0;
+}
+
 
 form input, form .btn, form textarea{
     width: 100%;

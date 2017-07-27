@@ -69,7 +69,7 @@
                 <h3>Contact</h3>
                 <form method="POST" action="https://formspree.io/jeric_tibayan-webdev@yahoo.com">
                     <textarea rows="5" name="message" id="message" placeholder="Message"></textarea>
-                    <input type="submit" class="btn">
+                    <input type="submit" class="submit-btn">
                 </form>
                 <button class="close-btn">CLOSE</button>
             </div>
