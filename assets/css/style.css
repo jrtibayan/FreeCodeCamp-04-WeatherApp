@@ -73,12 +73,12 @@ main {
 
 #btnCel:hover,
 #btnFar:hover {
-    background: blue;
+    background: #036893;
     color: #fff;
 }
 
 #btnCel.active, #btnFar.active {
-    background: green;
+    background: #FFBD15;
     color: #fff;
 }
 

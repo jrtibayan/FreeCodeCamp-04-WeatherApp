@@ -6,23 +6,20 @@ function toTitleCase(str) {
 }
 
 function updateHTML(info) {
-    console.log("City: " + info.location);
-    document.getElementById("city").innerHTML = info.location;
+    $("#city").html(info.location);
 
     console.log("C: " + info.temp);
     document.getElementById("temp").innerHTML = info.temp;
     document.getElementById("btnCel").classList.add("active");
 
-    console.log(info.weather);
-    document.getElementById("weather").innerHTML = info.weather;
-
-    console.log(info.icon);
+    $("#weather").html(info.weather);
     $(".icon").html(info.icon);
-
 }
 
 var lat = 0;
 var lon = 0;
+// stored temp on global so I can easily switch between the two
+// no need to recompute everytime user select C or F
 var tempC = 0;
 var tempF = 0;
 
@@ -50,7 +47,8 @@ function getWeather() {
     // my appid on openweathermap
     var appid = "&APPID=d611de651509c1c8fb23cc14c69e9df3"
 
-    /*JAVACRIPT GETJSON EQUIVALENT */
+    /* JAVACRIPT GETJSON EQUIVALENT */
+    /* Used this instead of JQuery just because it was said to run faster */
     var request = new XMLHttpRequest();
     var url = api + pos + appid;
     request.open('GET', url , true);
@@ -117,31 +115,37 @@ function getLocation(callback) {
     );
 }
 
-/* Execute getLocation */
-getLocation(
-    /* after it executes it runs this callback function where coords were returned */
-    function(coords){
-        /* get the lon and lat from coords */
-        lon = coords.longitude;
-        lat = coords.latitude;
-        console.log(lat+" "+lon);
-        /* when lon and lat is now available getWeather */
-        getWeather();
-    }
-);
 
-// show the info section
-$('.more-info-btn').click(function() {
-    $(".more-info").animate({top: 0}, 500);
-    $('.more-info').css('display', 'block');
-});
 
-// close the info section
-$('.close-btn').click(function() {
-    console.log('hello');
-    $(".more-info").animate({opacity: 0}, 500, function() {
-        $('.more-info').css('display', 'none');
-        $('.more-info').css('opacity', '1');
-        $('.more-info').css('top', '100vh');
+
+$(document).ready(function() {
+    // show the info section
+    $('.more-info-btn').click(function() {
+        $(".more-info").animate({top: 0}, 500);
+        $('.more-info').css('display', 'block');
     });
+
+    // close the info section
+    $('.close-btn').click(function() {
+        console.log('hello');
+        $(".more-info").animate({opacity: 0}, 500, function() {
+            $('.more-info').css('display', 'none');
+            $('.more-info').css('opacity', '1');
+            $('.more-info').css('top', '100vh');
+        });
+    });
+
+    /* Execute getLocation */
+    getLocation(
+        /* after it executes it runs this callback function where coords were returned */
+        function(coords){
+            /* get the lon and lat from coords */
+            lon = coords.longitude;
+            lat = coords.latitude;
+            console.log(lat+" "+lon);
+            /* when lon and lat is now available getWeather */
+            getWeather();
+        }
+    );
+
 });
