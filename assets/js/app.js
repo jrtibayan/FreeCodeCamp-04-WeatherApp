@@ -7,19 +7,15 @@ function toTitleCase(str) {
 
 function updateHTML(info) {
     $("#city").html(info.location);
-
-    console.log("C: " + info.temp);
-    document.getElementById("temp").innerHTML = info.temp;
-    document.getElementById("btnCel").classList.add("active");
-
+    $("#temp").html(info.temp);
+    $( "#btnCel" ).addClass( "active" );
     $("#weather").html(info.weather);
     $(".icon").html(info.icon);
 }
 
+
 var lat = 0;
 var lon = 0;
-// stored temp on global so I can easily switch between the two
-// no need to recompute everytime user select C or F
 var tempC = 0;
 var tempF = 0;
 
@@ -27,17 +23,19 @@ var temp = document.getElementById('temp');
 var btnC = document.getElementById('btnCel');
 var btnF = document.getElementById('btnFar');
 
-btnC.addEventListener('click', function(){
-    temp.innerHTML = tempC;
-    btnF.classList.remove("active");
-    btnC.classList.add("active");
+
+$("#btnCel").click(function() {
+    $("#temp").html(tempC);
+    $("#btnFar").removeClass("active");
+    $("#btnCel").addClass("active");
 });
 
-btnF.addEventListener('click', function(){
-    temp.innerHTML = tempF;
-    btnC.classList.remove("active");
-    btnF.classList.add("active");
+$("#btnFar").click(function() {
+    $("#temp").html(tempF);
+    $("#btnCel").removeClass("active");
+    $("#btnFar").addClass("active");
 });
+
 
 function getWeather() {
     // this is the html address
@@ -87,7 +85,15 @@ function getWeather() {
             "icon" : '<img src="assets/img/'+ yourIcon + '">',
         });
 
-        document.getElementById('hideContainer').classList.remove("hide");
+        $('.spinner-container').animate(
+            {opacity: 0},
+            500,
+            function() {
+                $('.spinner-container').css('display', 'none');
+            }
+        );
+        $("main").animate({opacity: 1}, 500);
+
       } else {
         // We reached our target server, but it returned an error
         console.log('We reached our target server, but it returned an error');

@@ -37,6 +37,12 @@
             </div>
         </main>
 
+        <div class="spinner-container">
+            <div class="loader">
+                <div class="loading-text">Loading</div>
+            </div>
+        </div>
+
 
         <footer class="app-info">
             <p>by <a href="http://www.jeric.rocks">Jeric Tibayan</a> | For more info <button class="more-info-btn btn2">Click Me!</button></p>
